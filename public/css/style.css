@@ -1,4 +1,4 @@
-header, .project:not(:last-child) {
+/* header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -46,4 +46,4 @@ nav {
   display: flex;
   align-items: center;
   padding: 10px;
-}
+} */
