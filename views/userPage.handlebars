@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{username}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Post Your Book for Sale</h3>
+
+    <form id="post-book-form" action="/books" method="POST">
+            <div>
+                <label for="title">Book Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div>
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" required>
+            </div>
+            <div>
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" required>
+            </div>
+            <div>
+                <label for="condition">Condition:</label>
+                <input type="text" id="condition" name="condition" required>
+            </div>
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" step="0.01" id="price" name="price" required>
+            </div>
+            <button type="submit">Post Book</button>
+        </form>
+  </div>
+
+  {{#if products.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Product</h3>
+
+    {{#each products as |product|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{product.id}}">{{product.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/user.js"></script>
