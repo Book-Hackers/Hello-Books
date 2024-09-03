@@ -6,26 +6,26 @@ class Transaction extends Model {}
 Transaction.init(
   {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
     book_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       references: {
         model: 'book',
         key: 'id',
       },
     },
     seller_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
     },
     buyer_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
