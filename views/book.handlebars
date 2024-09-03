@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{book.title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>{{book.title}}</h1>
+    </header>
+
+    <main>
+       <div class="book-details">
+            <h2>Details</h2>
+            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg" alt="Book Cover for {{book.title}}" class="book-cover">
+            <p><strong>Author:</strong> {{book.author}}</p>
+            <p><strong>Genre:</strong> {{book.genre}}</p>
+            <p><strong>ISBN:</strong> {{book.isbn}}</p>
+            <p><strong>Condition:</strong> {{book.condition}}</p>
+            <p><strong>Price:</strong> ${{book.price}}</p>
+        </div>
+
+    </main>
+</body>
+</html>

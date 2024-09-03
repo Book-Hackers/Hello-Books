@@ -8,7 +8,7 @@
   <div class="col-md-6">
     <h3>Post Your Book for Sale</h3>
 
-    <form id="post-book-form" action="/books" method="POST">
+    <form id="post-book-form" action="/api/books" method="POST">
             <div>
                 <label for="title">Book Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -37,17 +37,17 @@
         </form>
   </div>
 
-  {{#if products.length}}
+  {{#if books.length}}
   <div class="col-md-6 project-list">
-    <h3>Current Product</h3>
+    <h3>Current Book</h3>
 
-    {{#each products as |product|}}
+    {{#each books as |book|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{product.id}}">{{product.name}}</a></h4>
+        <h4><a href="/book/{{book.id}}">{{book.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{book.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -55,4 +55,4 @@
   {{/if}}
 </div>
 
-<script src="./js/user.js"></script>
+<script src="/js/book.js"></script>

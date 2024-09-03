@@ -1,0 +1,18 @@
+[
+  {
+    "title":"Clash",
+    "author":"Hazel Markus",
+    "genre":"non-fiction",
+    "condition":"good",
+    "price":20,
+    "isbn":"978-1-59463-098-9"
+  },
+ {
+	"title":"Dog Man",
+	"author":"Dav Pilkey",
+	"genre":"children",
+	"condition":"good",
+	"price":12,
+	"isbn":"978-1-338-61194-6"
+}
+]
