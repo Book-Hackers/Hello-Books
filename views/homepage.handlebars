@@ -5,17 +5,17 @@
         <div class="book-photo">
             <img src="https://www.anelto.com/wp-content/uploads/2021/08/placeholder-image.png">
         </div>
-        <h3>{{book.price}}</h3>
-        <h3>
+        <h3 class="price">${{book.price}}</h3>
+        <h3 class="view">
         <a href="/book/{{book.id}}">View Book</a>
         </h3>
-        <h3>
-            <button class="btn" id="add-to-cart">Add to Cart</button>
+        <h3 class="add-to-cart">
+            <div class="btn" id="add-to-cart">Add to Cart</div>
         </h3>
     </div>
     <div class="book-info">
-        <div class="book-tag">
-            
+        <div class="book-tag">  
+            <span class="tag">Active</span>
         </div>
         <h2>{{book.title}}</h2>
         <h3>{{book.author}}</h3>

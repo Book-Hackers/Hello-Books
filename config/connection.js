@@ -12,14 +12,14 @@ if (process.env.DB_URL) {
     process.env.DB_PASSWORD,
     {
       host: 'localhost',
-      dialect: 'postgres',
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false // or true if you have a valid certificate
-        }
+      dialect: 'postgres'
+    //   dialectOptions: {
+    //     ssl: {
+    //       require: true,
+    //       rejectUnauthorized: false // or true if you have a valid certificate
+    //     }
       
-    }
+    // }
   }
   );
 }
