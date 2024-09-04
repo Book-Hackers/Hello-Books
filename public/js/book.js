@@ -17,7 +17,7 @@ const newBookFormHandler = async (event) => {
         },
       });
       if (response.ok) {
-        document.location.replace('/book');
+        document.location.replace('/homepage');
       } else {
         alert('Failed to post book');
       }

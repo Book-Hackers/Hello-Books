@@ -13,13 +13,13 @@ if (process.env.DB_URL) {
     {
       host: 'localhost',
       dialect: 'postgres',
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false // or true if you have a valid certificate
-        }
+      // dialectOptions: {
+      //   ssl: {
+      //     require: true,
+      //     rejectUnauthorized: false // or true if you have a valid certificate
+      //   }
       
-    }
+    // }
   }
   );
 }
