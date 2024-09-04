@@ -1,0 +1,30 @@
+[
+  {
+    "title": "The Adventures of Tom Sawyer",
+    "author": "Mark Twain",
+    "genre": "Fiction",
+    "description": "The Adventures of Tom Sawyer is a novel by Mark Twain published on 9 June 1876 about a boy, Tom Sawyer, growing up along the Mississippi River. It is set in the 1840s in the town of St. Petersburg, which is based on Hannibal, Missouri, where Twain lived as a boy.",
+    "isbn": "9780195810400",
+    "condition": "used",
+    "price": 5
+  },
+  {
+    "title": "The Sign of the Beaver",
+    "author": "Elizabeth George Speare",
+    "genre": "Fiction",
+    "description": "The Sign of the Beaver is a children's historical novel by American author Elizabeth George Speare, which has won numerous literary awards. It was published in February 1983, and has become one of her most famous works.",
+    "isbn": "9780780771673",
+    "condition": "used",
+    "price": 7
+  },
+  {
+    "title": "Beowulf",
+    "author": "Anonymous",
+    "genre": "Epic Heroic",
+    "description": "Beowulf is an Old English epic poem in the tradition of Germanic heroic legend consisting of 3,182 alliterative lines. It is one of the most important and most often translated works of Old English literature.",
+    "isbn": "9780140433777",
+    "condition": "used",
+    "price": 10
+  }
+
+]

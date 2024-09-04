@@ -1,4 +1,4 @@
-header, .project:not(:last-child) {
+/* header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -22,3 +22,36 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+
+.createAccountTitle{
+  text-align: center;
+}
+
+.form-group {
+  text-align: center; 
+}
+
+.btn-primary {
+  display: inline-block; 
+  width: 30%;
+}
+
+.createAccountContainer{
+  width: 100%;
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.book-cover {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
