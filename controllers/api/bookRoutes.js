@@ -1,38 +1,43 @@
-const router = require('express').Router();
-const { Book } = require('../../models');
-const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
-  try {
-    const newBook = await Book.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+const express = require('express');
+const router = express.Router();
+const {Book} = require('../../models');
+const withAuth = require('../../utils/auth'); 
 
-    res.status(200).json(newBook);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+// POST route to add a new book
+router.post('/', async (req, res) => {
+    console.log("POST /api/books called");
+    console.log(req.body);
+    try {
+        const newBook = await Book.create({
+            title: req.body.title,
+            author: req.body.author,
+            genre: req.body.genre,
+            isbn: req.body.isbn,
+            condition: req.body.condition,
+            price: req.body.price,
+            user_id: req.session.user_id, 
+        });
+        res.status(200).json(newBook);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const bookData = await Book.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
+router.get('/userPage', async (req, res) => {
+    try {
+        const booksData = await Book.findAll({
+        });
+        const books = booksData.map((book) => book.get({ plain: true }));
 
-    if (!bookData) {
-      res.status(404).json({ message: 'No project found with this id!' });
-      return;
+        res.render('userPage', {
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
-
-    res.status(200).json(bookData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 module.exports = router;
+
