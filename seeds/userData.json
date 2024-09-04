@@ -1,30 +1,30 @@
 [
-    {
-      "first_name": "Sal",
-      "last_name": "Salison",
-      "username": "Ssalison",
-      "email": "sal@hotmail.com",
-      "password": "password12345",
-      "address": "1234 Loving Road",
-      "phone_number": "123456789"
-    },
-    {
-      "first_name": "Lernantino",
-      "last_name": "Lerneston",
-      "username": "Llerneston",
-      "email": "lernantino@gmail.com",
-      "password": "password12345",
-       "address": "1234 Dusty Road",
-      "phone_number": "123456789"
-    },
-    {
-      "first_name": "Amiko",
-      "last_name": "Amiston",
-      "username": "Aamiston",
-      "email": "amiko2k20@aol.com",
-      "password": "password12345",
-       "address": "1234 Cloudy Road",
-      "phone_number": "123456789"
-    }
-  ]
-  
+  {
+    "first_name": "Sal",
+    "last_name": "Salison",
+    "username": "Ssalison",
+    "email": "sal@hotmail.com",
+    "password": "password12345",
+    "address": "1234 Loving Road",
+    "phone_number": "123456789"
+  },
+  {
+    "first_name": "Lernantino",
+    "last_name": "Lerneston",
+    "username": "Llerneston",
+    "email": "lernantino@gmail.com",
+    "password": "password12345",
+     "address": "1234 Dusty Road",
+    "phone_number": "123456789"
+  },
+  {
+    "first_name": "Amiko",
+    "last_name": "Amiston",
+    "username": "Aamiston",
+    "email": "amiko2k20@aol.com",
+    "password": "password12345",
+     "address": "1234 Cloudy Road",
+    "phone_number": "123456789"
+  }
+]
+
