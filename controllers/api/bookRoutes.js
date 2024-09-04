@@ -24,9 +24,18 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/test', async (req, res) => {
-    console.log('GET /api/test route hit');
-    res.json({ message: 'Test route works' });
+router.get('/userPage', async (req, res) => {
+    try {
+        const booksData = await Book.findAll({
+        });
+        const books = booksData.map((book) => book.get({ plain: true }));
+
+        res.render('userPage', {
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
