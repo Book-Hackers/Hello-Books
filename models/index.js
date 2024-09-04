@@ -3,6 +3,7 @@ const Book = require('./Book');
 const Transaction = require('./Transaction');
 
 
+
 User.hasMany(Book, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
