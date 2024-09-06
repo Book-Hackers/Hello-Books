@@ -17,7 +17,7 @@ const newBookFormHandler = async (event) => {
         },
       });
       if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.replace('/api/books/sellerpage');
       } else {
         alert('Failed to post book');
       }

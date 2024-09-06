@@ -7,8 +7,8 @@ Transaction.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
     },
     book_id: {
       type: DataTypes.INTEGER,
