@@ -1,10 +1,46 @@
 
+a {
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+header {
+   background-color: #424a26;
+   margin: 0px;
+   display: flex;
+   justify-content: space-between;
+}
+
+header h1 a {
+    color: #a47e4f;
+    margin-left: 20px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header nav a {
+    color: #a47e4f;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+
 .book-container {
-    background-color: gray;
+    background-color: #A47E4F;
     width: 400px;
     height: 400px;
     display: flex;
-    padding: 20px;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    box-shadow: 2px 2px 2px 	#2a3019;
 }
 
 .book-container .buy-book img {
@@ -13,9 +49,34 @@
     height: 150px;
 }
 
-header {
-    background-color: lightgray;
-    margin-bottom: 100px;
+.book-container .buy-book h3 {
+    background-color: #D7BE69;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+
+
+.book-container .buy-book .view:hover {
+    cursor: pointer;
+    border: solid 3px #424a26;
+}
+
+.book-container .buy-book .add-to-cart:hover {
+    cursor: pointer;
+    border: solid 3px #424a26;
+}
+
+.book-container .book-info .tag {
+    background-color: green;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.book-container .buy-book, .book-info {
+    margin: 20px
 }
 
 main {

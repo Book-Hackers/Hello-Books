@@ -10,18 +10,18 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex align-center p-2">
+    <header class="header">
       <h1>
         <a href="/">Books</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
+
          <a href="/api/books/sellerpage">Seller's Dashboard</a>
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
     </header>
@@ -32,7 +32,6 @@
     <footer>
       
     </footer>
-  </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
