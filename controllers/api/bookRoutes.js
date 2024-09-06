@@ -82,7 +82,9 @@ router.put('/updateStatus/:id', (req, res) => {
     Book.update({ status: newStatus }, {
       where: { id: bookId }
     })
-    .then(() => res.status(200).send('Status updated successfully'))
+    .then(() => {
+      res.status(200).json({ status: newStatus });
+    })
     .catch(err => {
       console.error('Error updating status:', err);
       res.status(500).send('Error updating status');
