@@ -11,7 +11,7 @@ const newBookFormHandler = async (event) => {
     if (title && author && genre && isbn && condition && price) {
       const response = await fetch(`/api/books`, {
         method: 'POST',
-        body: JSON.stringify({ title, author, genre, isbn, condition, price }),
+        body: JSON.stringify({title: title, author: author, genre: genre, isbn: isbn, condition: condition, price: price }),
         headers: {
           'Content-Type': 'application/json',
         },

@@ -1,19 +1,19 @@
-<div class="book-container">
+<div class="book-page-container">
     <div class="buy-book">
         <div class="book-photo">
             <img src="https://covers.openlibrary.org/b/isbn/{{isbn}}-L.jpg" alt="Book Cover for {{title}}" class="book-cover">
         </div>
-        <h3>{{price}}</h3>
+        <h3>${{price}}</h3>
         <h3>
-            <button class="btn" id="add-to-cart">Add to Cart</button>
+            <a id="add-to-cart">Add to Cart</a>
         </h3>
     </div>
     <div class="book-info">
         <div class="book-tag">
             
         </div>
-        <h2>{{title}}</h2>
-        <h3>{{author}}</h3>
+        <h2 data-id="{{id}}" id="bookTitle">{{title}}</h2>
+        <h3 data-id="{{id}}" id="bookAuthor" >{{author}}</h3>
         <p>{{description}}</p>
     </div>
 </div>

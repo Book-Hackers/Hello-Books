@@ -7,6 +7,10 @@ a {
     color: black;
 }
 
+a {
+    cursor: pointer;
+}
+
 header {
    background-color: #424a26;
    margin: 0px;
@@ -40,7 +44,7 @@ header nav a {
     border-radius: 10px;
     margin-top: 100px;
     margin-bottom: 100px;
-    box-shadow: 2px 2px 2px 	#2a3019;
+    box-shadow: 2px 2px 2px #2a3019;
 }
 
 .book-container .buy-book img {
@@ -83,4 +87,55 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+body {
+    /* display: flex; */
+}
+
+.book-page-container {
+    background-color: #A47E4F;
+    width: 600px;
+    /* height: 500px; */
+    display: flex;
+    border-radius: 10px;
+    margin-top: 100px;
+    /* margin-bottom: 100px; */
+    box-shadow: 2px 2px 2px #2a3019;
+}
+
+.book-page-container .buy-book img {
+    width: 150px;
+    background-color: lightgray;
+    height: 150px;
+}
+
+.book-page-container .buy-book h3 {
+    background-color: #D7BE69;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+
+
+.book-page-container .buy-book .view:hover {
+    cursor: pointer;
+    border: solid 3px #424a26;
+}
+
+.book-page-container .buy-book .add-to-cart:hover {
+    cursor: pointer;
+    border: solid 3px #424a26;
+}
+
+.book-page-container .book-info .tag {
+    background-color: green;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.book-page-container .buy-book, .book-info {
+    margin: 20px
 }

@@ -17,6 +17,8 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
+        <a href="/cart" class="cart-link">Cart</a>
+
         <a href="/profile/">Your Account</a>
         <a id="logout">Logout</a>
         {{else}}
@@ -35,6 +37,7 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  <script src="/js/cart.js"></script>
   {{/if}}
 </body>
 

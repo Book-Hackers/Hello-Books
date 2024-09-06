@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, User } = require('../models');
+const { Book, User, Cart } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -66,6 +66,24 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/cart', withAuth, async (req, res) => {
+  try {
+    const cartData = await Cart.findByPk(req.session.user_id, {
+      attributes: {exclude: ['password']},
+      include: [{ model: Book }]
+    });
+
+    const cart = cartData.get({ plain: true });
+
+    res.render('cart', {
+      ...cart,
+      logged_in: true
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
