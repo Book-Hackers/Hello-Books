@@ -19,4 +19,5 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  ifEquals: (a, b, options) => a === b ? options.fn(this) : options.inverse(this),
 };
