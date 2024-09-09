@@ -1,35 +1,33 @@
 const addToCart = document.getElementsByClassName('add-to-cart')
 const cartHandler = async () => {
-  
-  
-    // Collect values from the login form
-    const title = document.querySelector('#bookTitle');
-    const author = document.querySelector('#bookAuthor')
-    if (title && author) {
-        const response = await fetch(`/api/cart`, {
-          method: 'POST',
-          body: JSON.stringify({title: title, author: author}),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.ok) {
-            console.log(response)
-        } else {
-          console.log('failed');
-        }
-      }
-    };
+  const book = document.querySelector('.book-container');
+  const title = document.querySelector('#bookTitle')
 
-    for (const btn of addToCart) {
-        btn.addEventListener('click', () => {
-            console.log('click')
-            cartHandler()
-        })
+
+  if (title) {
+    const response = await fetch('api/users/cart', {
+      method: 'POST',
+      body: JSON.stringify({ title: title }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(response)
+
+    if (response.ok) {
+      document.location.replace('/cart')
+      console.log('worked')
+    } else {
+      console.log('failed')
+
     }
 
-  const cartNav = document.querySelector('.cart-link');
+  }
+}
 
-  cartNav.addEventListener('click', () => {
-    
-  })
+
+for (const btn of addToCart) {
+    btn.addEventListener('click', () => {
+      cartHandler();
+    })
+}
