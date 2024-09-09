@@ -91,5 +91,22 @@ router.put('/updateStatus/:id', (req, res) => {
     });
   });
 
+
+  router.delete('/:id', (req, res) => {
+    const bookId = req.params.id;
+    const newStatus = req.body.status;
+    Book.destroy({
+      where: { id: bookId }
+    })
+    .then(() => {
+      res.status(200).json({ message: "Book Deleted" });
+    })
+    .catch(err => {
+      console.error('Error Deleting Book:', err);
+      res.status(500).send('Error Deleting Book');
+    });
+  });
+
+
 module.exports = router;
 
