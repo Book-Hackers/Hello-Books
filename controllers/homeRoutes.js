@@ -69,15 +69,18 @@ router.get('/profile', withAuth, async (req, res) => {
 
 router.get('/cart', withAuth, async (req, res) => {
   try {
-    const cartData = await Cart.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: {exclude: ['password']},
-      include: [{ model: Book }]
+      include: [{
+         model: Book,
+         attributes: ['title', 'author']
+       }]
     });
 
-    const cart = cartData.get({ plain: true });
+    const user = userData.get({ plain: true });
 
     res.render('cart', {
-      ...cart,
+      ...user,
       logged_in: true
     })
   } catch (err) {
