@@ -139,3 +139,73 @@ body {
 .book-page-container .buy-book, .book-info {
     margin: 20px
 }
+
+.createAccountContainer {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .createAccountTitle {
+    font-size: 34px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .form-group .btn {
+    background-color: #424a26;
+    color: #D7BE69;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+
+  .btn-primary:hover {
+    background-color: #2e331a;
+  }
+
+  nav.form-group a {
+    color: #424a26;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  
+  nav.form-group a:hover {
+    text-decoration: underline;
+
+  }
+
+  .error-message {
+    color: red;
+    font-size: 18px;
+    margin-top: 5px;
+  }
