@@ -52,9 +52,9 @@ router.get('/sellerpage', withAuth, async (req, res) => {
         });
 
         const books = booksData.map((book) => book.get({ plain: true }));
-        const activeBooks = books.filter(book => book.transactions && book.transactions[0].status === 'active');
-        const pendingBooks = books.filter(book => book.transactions && book.transactions[0].status === 'pending');
-        const soldBooks = books.filter(book => book.transactions && book.transactions[0].status === 'sold');
+        const activeBooks = books.filter(book => book.status  === 'active');
+        const pendingBooks = books.filter(book => book.status  === 'pending');
+        const soldBooks = books.filter(book => book.status === 'sold');
 
         res.render('sellerpage', {
             username: req.session.username,
@@ -77,6 +77,7 @@ router.get('/postBook', (req, res) => {
   });
 
 router.put('/updateStatus/:id', (req, res) => {
+    console.log("this")
     const bookId = req.params.id;
     const newStatus = req.body.status;
     Book.update({ status: newStatus }, {

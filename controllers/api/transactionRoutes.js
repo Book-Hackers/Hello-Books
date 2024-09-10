@@ -4,6 +4,7 @@ const { Transaction } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.put('/:id', withAuth, async (req, res) => {
+    console.log(req.params)
     try {
         const updatedTransaction = await Transaction.update(
             { status: req.body.status },

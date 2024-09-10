@@ -14,6 +14,7 @@ document.querySelectorAll('.status-select').forEach(select => {
       })
       .then(response => {
         if (response.ok) {
+          console.log(newStatus);
           moveBookToNewSection(bookContainer, newStatus);
           alert('Status updated successfully.');
         } else {
