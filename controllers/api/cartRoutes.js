@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Transaction, User, Book } = require('../../models');
+const { Transaction, Book} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -14,10 +14,9 @@ router.post('/add', withAuth, async (req, res) => {
         seller_id: sellerId,
         buyer_id: buyerId,
         buyer_email: buyerEmail,
-        status: 'pending',
+        status: 'active',
         transaction_date: new Date(),
       });
-  
       res.status(200).json({ message: 'Book added to cart and seller notified.' });
     } catch (err) {
       console.error(err);
