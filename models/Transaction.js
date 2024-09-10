@@ -31,6 +31,13 @@ Transaction.init(
         key: 'id',
       },
     },
+    buyer_email: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'email',
+      },
+    },
     transaction_date: {
       type: DataTypes.DATE,
       allowNull: false,

@@ -6,62 +6,75 @@
 
   <div class="books-for-sale">
     <h3>Books for Sale</h3>
-  {{#each activeBooks as |book| }}
-<div class="book-container">
-    <div class="buy-book">
-            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg">
-        <h2>{{book.title}}</h2>
-        <h3>{{book.price}}</h3>
-        <select class="status-select" data-id="{{book.id}}">
-                <option value="active" {{#ifEquals book.status "active"}}selected{{/ifEquals}}>Active</option>
-                <option value="pending" {{#ifEquals book.status "pending"}}selected{{/ifEquals}}>Pending</option>
-                <option value="sold" {{#ifEquals book.status "sold"}}selected{{/ifEquals}}>Sold</option>
-            </select>
-    </div>
-</div>
-{{/each}}
-</div>
-
-<div class="books-pending">
-    <h3>Books Pending</h3>
-    {{#each pendingBooks as |book| }}
-<div class="book-container">
-    <div class="buy-book">
-        <div class="book-photo">
-            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg">
+    {{#each activeBooks as |book|}}
+      <div class="book-container">
+        <div class="buy-book">
+          <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg">
+          <h2>{{book.title}}</h2>
+          <h3>{{book.price}}</h3>
+          <select class="status-select" data-id="{{book.id}}">
+            <option value="active" {{#ifEquals book.status "active"}}selected{{/ifEquals}}>Active</option>
+            <option value="pending" {{#ifEquals book.status "pending"}}selected{{/ifEquals}}>Pending</option>
+            <option value="sold" {{#ifEquals book.status "sold"}}selected{{/ifEquals}}>Sold</option>
+          </select>
         </div>
-        <h2>{{book.title}}</h2>
-        <h3>{{book.price}}</h3>
-                <select class="status-select" data-id="{{book.id}}">
-                <option value="active" {{#ifEquals book.status "active"}}selected{{/ifEquals}}>Active</option>
-                <option value="pending" {{#ifEquals book.status "pending"}}selected{{/ifEquals}}>Pending</option>
-                <option value="sold" {{#ifEquals book.status "sold"}}selected{{/ifEquals}}>Sold</option>
-            </select>
-    </div>
-</div>
-{{/each}}
-</div>
+        <div class="buyer-emails">
+          <h4>Interested Buyers:</h4>
+          {{#if book.transactions.length}}
+            {{#each book.transactions as |transaction|}}
+              {{#if transaction.buyerEmail}}
+                <p><strong>{{transaction.buyerEmail}}</strong></p>
+              {{/if}}
+            {{/each}}
+          {{else}}
+            <p>No buyer has shown interest yet.</p>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="books-pending">
+    <h3>Books Pending</h3>
+    {{#each pendingBooks as |book|}}
+      <div class="book-container">
+        <div class="buy-book">
+          <div class="book-photo">
+            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg">
+          </div>
+          <h2>{{book.title}}</h2>
+          <h3>{{book.price}}</h3>
+          <select class="status-select" data-id="{{book.id}}">
+            <option value="active" {{#ifEquals book.status "active"}}selected{{/ifEquals}}>Active</option>
+            <option value="pending" {{#ifEquals book.status "pending"}}selected{{/ifEquals}}>Pending</option>
+            <option value="sold" {{#ifEquals book.status "sold"}}selected{{/ifEquals}}>Sold</option>
+          </select>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 
   <div class="books-sold">
     <h3>Books Sold</h3>
-   {{#each soldBooks as |book| }}
-<div class="book-container">
-    <div class="buy-book">
-            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg">
-        <h2>{{book.title}}</h2>
-        <h3>{{book.price}}</h3>
-               <select class="status-select" data-id="{{book.id}}">
-                <option value="active" {{#ifEquals book.status "active"}}selected{{/ifEquals}}>Active</option>
-                <option value="pending" {{#ifEquals book.status "pending"}}selected{{/ifEquals}}>Pending</option>
-                <option value="sold" {{#ifEquals book.status "sold"}}selected{{/ifEquals}}>Sold</option>
-            </select>
-    </div>
-</div>
-{{/each}}
-</div>
+    {{#each soldBooks as |book|}}
+      <div class="book-container">
+        <div class="buy-book">
+          <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg">
+          <h2>{{book.title}}</h2>
+          <h3>{{book.price}}</h3>
+          <select class="status-select" data-id="{{book.id}}">
+            <option value="active" {{#ifEquals book.status "active"}}selected{{/ifEquals}}>Active</option>
+            <option value="pending" {{#ifEquals book.status "pending"}}selected{{/ifEquals}}>Pending</option>
+            <option value="sold" {{#ifEquals book.status "sold"}}selected{{/ifEquals}}>Sold</option>
+          </select>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </div>
 
 <script src="/js/status.js"></script>
+<script src="/js/add-to-cart.js"></script>
 <script>
   document.getElementById('post-new-book').addEventListener('click', function() {
     window.location.href = '/api/books/postBook';
