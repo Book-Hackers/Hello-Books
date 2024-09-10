@@ -64,7 +64,7 @@ Cart.belongsToMany(Book, {
 Book.belongsToMany(Cart, {
   through: CartItem,
   foreignKey: 'book_id',
-  uniqueKey: false;
+  uniqueKey: false
 })
 
 
