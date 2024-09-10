@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
+const { User, Cart, Book, CartItem } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -51,6 +52,26 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.post('/cart/add', async (req, res) => {
+  console.log("ADD BOOK TO CART")
+  console.log(req.body)
+  console.log(req.session.user_id)
+  try {
+    let cart = await Cart.findOne({ where: { user_id: req.session.user_id }});
+    console.log(cart)
+    if (!cart) {
+      cart = await Cart.create({ user_id: req.session.user_id });
+    }
+
+    await CartItem.create({ cart_id: cart.id, book_id: req.body.book_id })
+
+    res.status(200).json({ message: "Product added to cart successfully!"})
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: "error in adding product"})
   }
 });
 
