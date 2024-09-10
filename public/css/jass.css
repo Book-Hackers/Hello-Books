@@ -61,7 +61,71 @@ header nav a {
     margin-bottom: 20px;
 }
 
+.myOrdersCardHeader {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 450px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
 
+}
+
+.myOrders{
+    width: 100%;
+}
+
+.pendingOrdersContainer{
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+    gap: 16px;
+
+}
+
+.myOrdersUsername {
+    font-size: 2.0em;
+    color: green;
+    text-decoration: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+.myOrdersUsername:hover {
+    font-size: 2.1em;
+}
+ 
+.myOrdersheader{
+    font-size: 4.3em;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.pendingText{
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 3.0em;
+
+}
+
+
+
+.pendingContainer{
+    text-align: center;
+}
 
 .book-container .buy-book .view:hover {
     cursor: pointer;

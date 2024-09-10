@@ -1,0 +1,69 @@
+<div class="myOrders">
+  <div class="myOrdersCardHeader">
+    <h1 class="myOrdersheader">My Orders</h1>
+
+    <a href="/profile/" class="myOrdersUsername">👤 {{first_name}}</a>
+  </div>
+    <div class="pendingContainer">
+        <div class="pendingText">Pending Orders</div>
+        <div class="pendingOrdersContainer">
+            {{#each books as |book| }}
+              <div class="book-container" style="margin-top: 10px; margin-bottom: 10px;">
+    <div class="buy-book">
+        <div class="book-photo">
+            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">
+        </div>
+        <h3 class="price">${{book.price}}</h3>
+        <h3 class="view">
+        <a href="/book/{{book.id}}">View Book</a>
+        </h3>
+        <h3 class="add-to-cart">
+            <a href="" class="btn" id="add-to-cart">Add to Cart</a>
+        </h3>
+    </div>
+    <div class="book-info">
+        <div class="book-tag">  
+            <span class="tag">Active</span>
+        </div>
+        <h2 id="bookTitle">{{book.title}}</h2>
+        <h3 id="bookAuthor">{{book.author}}</h3>
+        <p>{{book.description}}</p>
+    </div>
+</div>
+            {{/each}}
+        </div>
+    </div>
+
+      <div class="pendingContainer">
+        <div class="pendingText">Sold Orders</div>
+        <div class="pendingOrdersContainer">
+            {{#each books as |book| }}
+              <div class="book-container" style="margin-top: 10px; margin-bottom: 10px;">
+    <div class="buy-book">
+        <div class="book-photo">
+            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">
+        </div>
+        <h3 class="price">${{book.price}}</h3>
+        <h3 class="view">
+        <a href="/book/{{book.id}}">View Book</a>
+        </h3>
+        <h3 class="add-to-cart">
+            <a href="" class="btn" id="add-to-cart">Add to Cart</a>
+        </h3>
+    </div>
+    <div class="book-info">
+        <div class="book-tag">  
+            <span class="tag">Active</span>
+        </div>
+        <h2 id="bookTitle">{{book.title}}</h2>
+        <h3 id="bookAuthor">{{book.author}}</h3>
+        <p>{{book.description}}</p>
+    </div>
+</div>
+            {{/each}}
+        </div>
+    </div>
+
+</div>
+
+
