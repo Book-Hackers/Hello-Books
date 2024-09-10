@@ -1,3 +1,4 @@
+
 <div class="myOrders">
   <div class="myOrdersCardHeader">
     <h1 class="myOrdersheader">My Orders</h1>
@@ -7,7 +8,7 @@
     <div class="pendingContainer">
         <div class="pendingText">Pending Orders</div>
         <div class="pendingOrdersContainer">
-            {{#each books as |book| }}
+            {{#each pendingBooks as |book| }}
               <div class="book-container" style="margin-top: 10px; margin-bottom: 10px;">
     <div class="buy-book">
         <div class="book-photo">
@@ -17,13 +18,11 @@
         <h3 class="view">
         <a href="/book/{{book.id}}">View Book</a>
         </h3>
-        <h3 class="add-to-cart">
-            <a href="" class="btn" id="add-to-cart">Add to Cart</a>
-        </h3>
+   
     </div>
     <div class="book-info">
         <div class="book-tag">  
-            <span class="tag">Active</span>
+            <span class="tag">{{book.status}}</span>
         </div>
         <h2 id="bookTitle">{{book.title}}</h2>
         <h3 id="bookAuthor">{{book.author}}</h3>
@@ -37,7 +36,7 @@
       <div class="pendingContainer">
         <div class="pendingText">Sold Orders</div>
         <div class="pendingOrdersContainer">
-            {{#each books as |book| }}
+            {{#each soldBooks as |book| }}
               <div class="book-container" style="margin-top: 10px; margin-bottom: 10px;">
     <div class="buy-book">
         <div class="book-photo">
@@ -47,9 +46,7 @@
         <h3 class="view">
         <a href="/book/{{book.id}}">View Book</a>
         </h3>
-        <h3 class="add-to-cart">
-            <a href="" class="btn" id="add-to-cart">Add to Cart</a>
-        </h3>
+      
     </div>
     <div class="book-info">
         <div class="book-tag">  

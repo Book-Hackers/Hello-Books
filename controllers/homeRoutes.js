@@ -80,14 +80,18 @@ router.get('/myOrders', withAuth, async (req, res) => {
       });
 
     const books = bookData.map((book) => book.get({ plain: true }));
-
+    const activeBooks = books.filter(book => book.status  === 'active');
+    const pendingBooks = books.filter(book => book.status  === 'pending');
+    const soldBooks = books.filter(book => book.status === 'sold');
     if (!req.session.logged_in) {
       res.redirect('/login/');
       return;
     }
     console.log(req.session)
     res.render('myOrders', {
-      books,
+      activeBooks, 
+      pendingBooks, 
+      soldBooks,
       first_name: req.session.username,
       logged_in: req.session.logged_in
     });
