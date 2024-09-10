@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, User, Cart } = require('../models');
+const { Book, User, Cart, CartItem } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -97,17 +97,25 @@ router.get('/myOrders', withAuth, async (req, res) => {
 });
 
 router.get('/cart', withAuth, async (req, res) => {
+ 
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: {exclude: ['password']},
-    });
+    const cartData = await CartItem.findAll( req.params.cartItem_id,
+      {
+        include: [
+          {
+            model: Book,
+            attributes: ['title']
+          }]});
+    console.log("CART DATA:", cartData)
 
-    const user = userData.get({ plain: true });
-
-    res.render('cart', {
-      ...user,
-      logged_in: true
-    })
+    const cartItems = cartData.map((cartItem) => cartItem.get({ plain: true }));
+    console.log(cartItems)
+    res.render('cart',
+       { 
+      cartItems,
+      logged_in: req.session.logged_in 
+    }
+  );
   } catch (err) {
     res.status(500).json(err);
   }

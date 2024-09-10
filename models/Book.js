@@ -54,6 +54,13 @@ Book.init(
         key: 'id',
       },
     },
+    cartItem_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'cartItem',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

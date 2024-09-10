@@ -1,4 +1,9 @@
+{{#each cartItems as |cartItem| }}
+
 <div class="book-in-cart">
-    <h2 class="cartTitle"></h2>
-    <h3 class="cartAuthor"></h3>
+    <h2 class="cartTitle">{{cartItem.book.title}}</h2>
+    <h3 class="cartAuthor">Hello</h3>
 </div>
+
+
+{{/each}}
