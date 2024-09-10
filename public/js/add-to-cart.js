@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const bookId = event.target.getAttribute('data-book-id');
         const sellerId = event.target.getAttribute('data-seller-id');
   
+        console.log(`Adding book with ID: ${bookId} and seller ID: ${sellerId} to cart.`); // Debugging log
+  
         try {
           const response = await fetch('/api/cart/add', {
             method: 'POST',
@@ -14,17 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({ bookId, sellerId }),
           });
-  
           const data = await response.json();
   
-          console.log("Response status:", response.status);  
-          console.log("Response body:", data);               
-  
-          if (response.ok) {
-            alert(data.message); 
-          } else {
-            alert('Failed to add book to cart: ' + data.error);
-          }
+          alert(data.message || 'Book added to cart successfully.');
         } catch (error) {
           console.error('Error:', error);
           alert('Error adding book to cart.');

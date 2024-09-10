@@ -46,8 +46,8 @@ router.get('/sellerpage', withAuth, async (req, res) => {
           },
           include: [{
               model: Transaction,
+              attributes: ['status','buyer_email'], 
               where: { seller_id: req.session.user_id },
-              attributes: ['status'], 
               required: false
           }]
       });

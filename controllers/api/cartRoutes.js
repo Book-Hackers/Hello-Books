@@ -9,11 +9,6 @@ router.post('/add', withAuth, async (req, res) => {
       const { bookId, sellerId } = req.body;
       const buyerId = req.session.user_id; 
       const buyerEmail = req.session.email;
-  
-      if (!bookId || !sellerId) {
-        return res.status(400).json({ error: 'Missing bookId or sellerId' });
-      }
-  
       const transaction = await Transaction.create({
         book_id: bookId,
         seller_id: sellerId,

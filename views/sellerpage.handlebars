@@ -22,8 +22,8 @@
           <h4>Interested Buyers:</h4>
           {{#if book.transactions.length}}
             {{#each book.transactions as |transaction|}}
-              {{#if transaction.buyerEmail}}
-                <p><strong>{{transaction.buyerEmail}}</strong></p>
+              {{#if transaction.buyer_email}}
+                <p><strong>{{transaction.buyer_email}}</strong></p>
               {{/if}}
             {{/each}}
           {{else}}
