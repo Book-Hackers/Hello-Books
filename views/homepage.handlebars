@@ -9,13 +9,15 @@
         <h3 class="view">
         <a href="/book/{{book.id}}">View Book</a>
         </h3>
+
         <h3 class="add-to-cart">
-            <button class="btn add-to-cart-btn" data-book-id="{{book.id}}"  data-seller-id = "{{book.user_id}}" >Add to Cart</button>
+            <button class="btn add-to-cart-btn" data-book-id="{{book.id}}"  id="add-to-cart" data-seller-id = "{{book.user_id}}" >Add to Cart</button>
+
         </h3>
     </div>
     <div class="book-info">
         <div class="book-tag">  
-            <span class="tag">Active</span>
+            <span class="tag">{{book.status}}</span>
         </div>
         <h2 id="bookTitle">{{book.title}}</h2>
         <h3 id="bookAuthor">{{book.author}}</h3>

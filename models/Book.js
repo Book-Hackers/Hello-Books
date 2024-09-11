@@ -40,6 +40,11 @@ Book.init(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: "Active"
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -51,6 +56,13 @@ Book.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'cart',
+        key: 'id',
+      },
+    },
+    cartItem_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'cartItem',
         key: 'id',
       },
     },

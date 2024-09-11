@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, User, Cart } = require('../models');
+const { Book, User, Cart, CartItem } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -67,22 +67,59 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-router.get('/cart', withAuth, async (req, res) => {
+router.get('/myOrders', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: {exclude: ['password']},
-      include: [{
-         model: Book,
-         attributes: ['title', 'author']
-       }]
+
+    const bookData = await Book.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['first_name', 'last_name'],
+          },
+        ],
+      });
+
+    const books = bookData.map((book) => book.get({ plain: true }));
+    const activeBooks = books.filter(book => book.status  === 'active');
+    const pendingBooks = books.filter(book => book.status  === 'pending');
+    const soldBooks = books.filter(book => book.status === 'sold');
+    if (!req.session.logged_in) {
+      res.redirect('/login/');
+      return;
+    }
+    console.log(req.session)
+    res.render('myOrders', {
+      activeBooks, 
+      pendingBooks, 
+      soldBooks,
+      first_name: req.session.username,
+      logged_in: req.session.logged_in
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    const user = userData.get({ plain: true });
+router.get('/cart', withAuth, async (req, res) => {
+ 
+  try {
+    const cartData = await CartItem.findAll( req.params.cartItem_id,
+      {
+        include: [
+          {
+            model: Book,
+            attributes: ['title']
+          }]});
+    console.log("CART DATA:", cartData)
 
-    res.render('cart', {
-      ...user,
-      logged_in: true
-    })
+    const cartItems = cartData.map((cartItem) => cartItem.get({ plain: true }));
+    console.log(cartItems)
+    res.render('cart',
+       { 
+      cartItems,
+      logged_in: req.session.logged_in 
+    }
+  );
   } catch (err) {
     res.status(500).json(err);
   }
