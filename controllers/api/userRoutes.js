@@ -75,6 +75,29 @@ router.post('/cart/add', async (req, res) => {
   }
 });
 
+router.delete('/cart/remove/:id', async (req, res) => {
+
+  try {
+    let cart = await Cart.findOne({ where: { user_id: req.session.user_id }});
+    console.log(cart)
+    if (!cart) {
+      return res.status(404).json({ message: "cart not found"});
+    }
+
+   let cartItem = await CartItem.findOne({ where: { cart_id: cart.id, book_id: req.params.id }})
+
+    await cartItem.destroy();
+   
+    res.status(200).json({ message: "Product deleted to cart successfully!"})
+
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: "error in deleting product"})
+  }
+});
+
+
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
