@@ -3,7 +3,7 @@
 <div class="book-container">
     <div class="buy-book">
         <div class="book-photo">
-            <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">
+            <img class="bookPhoto" src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">
         </div>
         <h3 class="price">${{book.price}}</h3>
         <h3 class="view">
@@ -21,7 +21,7 @@
         </div>
         <h2 id="bookTitle">{{book.title}}</h2>
         <h3 id="bookAuthor">{{book.author}}</h3>
-        <p>{{book.description}}</p>
+        <p class="desContainer">{{book.description}}</p>
     </div>
 </div>
 {{/each}}

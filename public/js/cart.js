@@ -43,7 +43,14 @@ async function addToCart(book_id) {
   }
 }
 
-// Attach this function to your "Add to Cart" button
+
+const btn = document.getElementById('add-to-cart')
+btn.addEventListener('click', (event) => {
+  event.preventDefault()
+  const bookId = btn.getAttribute('data-id')
+  addToCart(bookId);
+});
+
 const addCartBtns = document.querySelectorAll('.add-to-cart')
 
 for (const btn of addCartBtns) {
@@ -104,4 +111,5 @@ for (const btn of removeBtns) {
 
 
 // checkout
+
 

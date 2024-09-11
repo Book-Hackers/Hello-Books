@@ -11,16 +11,38 @@ a {
     cursor: pointer;
 }
 
+body{
+    background-color: #EDE1D1;
+    margin: 0;
+    font-family: Arial, sans-serif; 
+}
+
 header {
-   background-color: #424a26;
+   background-color: rgba(65, 46, 39, 0.9);
    margin: 0px;
    display: flex;
    justify-content: space-between;
+   border-bottom-left-radius: 8px;
+   border-bottom-right-radius: 8px;
+   align-items: center;  
+
 }
 
-header h1 a {
-    color: #a47e4f;
+h1 a {
+    color: #6A704C;
     margin-left: 20px;
+    font-size: 75px;
+    /* height: 50%; */
+    top: 2.5%;
+    right: 41%;
+    text-decoration: underline;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: 0;
 }
 
 header nav {
@@ -30,31 +52,31 @@ header nav {
 }
 
 header nav a {
-    color: #a47e4f;
-    font-size: 20px;
+    color: #6A704C;
+    font-size: 25px;
     margin-left: 20px;
 }
 
 
 .book-container {
-    background-color: #A47E4F;
+    background-color: #6A704C;
     width: 400px;
-    height: 400px;
+    /* height: 400px; */
     display: flex;
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
     box-shadow: 2px 2px 2px #2a3019;
 }
 
 .book-container .buy-book img {
     width: 150px;
-    background-color: lightgray;
-    height: 150px;
+    background-color: #EDE1D1;
+    /* height: 150px; */
 }
 
 .book-container .buy-book h3 {
-    background-color: #D7BE69;
+    background-color: #fff;
     border-radius: 5px;
     text-align: center;
     padding: 5px;
@@ -98,7 +120,7 @@ header nav a {
 
 .myOrdersUsername {
     font-size: 2.0em;
-    color: green;
+    color: #EDE1D1;
     text-decoration: none;
     margin-right: auto;
     margin-left: auto;
@@ -122,6 +144,13 @@ header nav a {
 }
 
 
+.logo{
+    width: 150px;
+    margin-left: 10px;
+    padding:5px;
+}
+
+
 
 .pendingContainer{
     text-align: center;
@@ -138,9 +167,15 @@ header nav a {
 }
 
 .book-container .book-info .tag {
-    background-color: green;
+    background-color: #fff;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
+}
+
+.desContainer{
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .book-container .buy-book, .book-info {
@@ -157,8 +192,23 @@ body {
     /* display: flex; */
 }
 
+/* .bookPhoto{
+    height: 100%;
+} */
+
+.seller-page{
+    width: 100%;
+    text-align: center;
+
+}
+.seller-info{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .book-page-container {
-    background-color: #A47E4F;
+    background-color: #424a26;
     width: 600px;
     /* height: 500px; */
     display: flex;
@@ -169,19 +219,25 @@ body {
 }
 
 .book-page-container .buy-book img {
-    width: 150px;
+    /* width: 150px; */
     background-color: lightgray;
-    height: 150px;
+    /* height: 150px; */
 }
 
 .book-page-container .buy-book h3 {
-    background-color: #D7BE69;
+    background-color: #fff;
     border-radius: 5px;
     text-align: center;
     padding: 5px;
     margin-bottom: 20px;
 }
 
+
+.books-for-sale{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .book-page-container .buy-book .view:hover {
@@ -217,7 +273,7 @@ body {
   .createAccountTitle {
     font-size: 34px;
     font-weight: bold;
-    color: #333;
+    color: #6A704C;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -226,6 +282,22 @@ body {
   .form {
     display: flex;
     flex-direction: column;
+  }
+
+  .postBookButton{
+    background-color: #6A704C;
+    color: #fff;
+    width: 150px;
+    height: 75px;
+    border-radius: 8px;
+    font-size: 24px;
+
+  }
+
+  .postBookButton:hover{
+    cursor: pointer;
+    background-color: #5d6343;
+
   }
   
   .form-group {
@@ -241,8 +313,8 @@ body {
     font-size: 16px;
   }
   .form-group .btn {
-    background-color: #424a26;
-    color: #D7BE69;
+    background-color: #6A704C;
+    color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 4px;
@@ -254,17 +326,20 @@ body {
   }
 
   .btn-primary:hover {
-    background-color: #2e331a;
+    background-color: #5d6343;
   }
 
   nav.form-group a {
-    color: #424a26;
+    color:  #412e27;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 32px;
+
   }
   
   nav.form-group a:hover {
     text-decoration: underline;
+    color:  #412e27;
+    transition: 1s;
 
   }
 
@@ -274,7 +349,72 @@ body {
     margin-top: 5px;
   }
 
-  /* Cart Page */
+
+  .container {
+    width: 80%;
+    max-width: 800px; /* Limits the max width of the container */
+    background-color: #fff; /* White background for the container */
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+  }
+  
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 20px; /* Space below the welcome section */
+  }
+  
+  .form-section h3 {
+    text-align: center;
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    margin-bottom: 15px; 
+  }
+  
+  label {
+    width: 150px; 
+    margin-right: 10px; 
+    font-weight: bold;
+    text-align: right; 
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    flex: 1; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px; 
+    box-sizing: border-box; 
+  }
+  
+  button {
+    background-color: #6A704C; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; 
+  
+  }
+  
+  button:hover {
+    background-color: #575c3e; 
+  }
+
 
 .cart-container {
 border: solid 5px black;
@@ -327,5 +467,6 @@ background-color: #D7BE69;
     cursor: pointer;
     background-color: #A47E4F;
 }
+
 
 
