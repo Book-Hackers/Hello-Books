@@ -1,8 +1,8 @@
-
 const express = require('express');
 const router = express.Router();
-const {Book} = require('../../models');
+const {Book, Transaction, User} = require('../../models');
 const withAuth = require('../../utils/auth'); 
+
 
 // POST route to add a new book
 router.post('/', async (req, res) => {
@@ -18,26 +18,99 @@ router.post('/', async (req, res) => {
             price: req.body.price,
             user_id: req.session.user_id, 
         });
-        res.status(200).json(newBook);
+        const newTransaction = await Transaction.create({
+            book_id: newBook.id,
+            seller_id: req.session.user_id,
+            buyer_id: null, 
+            buyer_Email:null,
+            transaction_date: new Date(), 
+            status: 'active', 
+        });
+
+        res.status(200).json({ newBook, newTransaction});
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-router.get('/userPage', async (req, res) => {
-    try {
-        const booksData = await Book.findAll({
-        });
-        const books = booksData.map((book) => book.get({ plain: true }));
 
-        res.render('userPage', {
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
+
+router.get('/sellerpage', withAuth, async (req, res) => {
+
+  console.log("Session username:", req.session.username);
+  console.log("Session user_id:", req.session.user_id);
+  try {
+      const booksData = await Book.findAll({
+          where: {
+              user_id: req.session.user_id,
+          },
+          include: [{
+              model: Transaction,
+              attributes: ['status','buyer_email'], 
+              where: { seller_id: req.session.user_id },
+              required: false
+          }]
+      });
+
+      const books = booksData.map((book) => book.get({ plain: true }));
+      const activeBooks = books.filter(book => book.transactions && book.transactions.some(transaction => transaction.status === 'active'));
+      const pendingBooks = books.filter(book => book.transactions && book.transactions.some(transaction => transaction.status === 'pending'));
+      const soldBooks = books.filter(book => book.transactions && book.transactions.some(transaction => transaction.status === 'sold'));
+
+      res.render('sellerpage', {
+          username: req.session.username,
+          activeBooks, 
+          pendingBooks, 
+          soldBooks, 
+          logged_in: req.session.logged_in,
+      });
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+
+
 });
+
+router.get('/postBook', (req, res) => {
+    res.render('postBook', {
+      username: req.session.username, 
+    });
+  });
+
+router.put('/updateStatus/:id', (req, res) => {
+    console.log("this")
+    const bookId = req.params.id;
+    const newStatus = req.body.status;
+    Book.update({ status: newStatus }, {
+      where: { id: bookId }
+    })
+    .then(() => {
+      res.status(200).json({ status: newStatus });
+    })
+    .catch(err => {
+      console.error('Error updating status:', err);
+      res.status(500).send('Error updating status');
+    });
+  });
+
+
+  router.delete('/:id', (req, res) => {
+    const bookId = req.params.id;
+    const newStatus = req.body.status;
+    Book.destroy({
+      where: { id: bookId }
+    })
+    .then(() => {
+      res.status(200).json({ message: "Book Deleted" });
+    })
+    .catch(err => {
+      console.error('Error Deleting Book:', err);
+      res.status(500).send('Error Deleting Book');
+    });
+  });
+
 
 module.exports = router;
 

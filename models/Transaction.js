@@ -7,8 +7,8 @@ Transaction.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
     },
     book_id: {
       type: DataTypes.INTEGER,
@@ -29,6 +29,13 @@ Transaction.init(
       references: {
         model: 'user',
         key: 'id',
+      },
+    },
+    buyer_email: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'email',
       },
     },
     transaction_date: {

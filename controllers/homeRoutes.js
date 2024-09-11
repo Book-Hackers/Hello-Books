@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, User } = require('../models');
+const { Book, User, Cart, CartItem } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -53,7 +53,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Book }],
     });
 
     const user = userData.get({ plain: true });
@@ -62,6 +62,77 @@ router.get('/profile', withAuth, async (req, res) => {
       ...user,
       logged_in: true
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/myOrders', withAuth, async (req, res) => {
+  try {
+
+    const bookData = await Book.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['first_name', 'last_name'],
+          },
+        ],
+      });
+
+    const books = bookData.map((book) => book.get({ plain: true }));
+    const activeBooks = books.filter(book => book.status  === 'active');
+    const pendingBooks = books.filter(book => book.status  === 'pending');
+    const soldBooks = books.filter(book => book.status === 'sold');
+    if (!req.session.logged_in) {
+      res.redirect('/login/');
+      return;
+    }
+    console.log(req.session)
+    res.render('myOrders', {
+      activeBooks, 
+      pendingBooks, 
+      soldBooks,
+      first_name: req.session.username,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/cart', withAuth, async (req, res) => {
+ 
+  try {
+    const bookData = await Book.findAll({
+      include: [
+        {
+          model: User,
+          attributes:['first_name', 'last_name']
+        },
+      ],
+    });
+    const books = bookData.map((book) => book.get({ plain: true }));
+
+    const cartData = await CartItem.findAll(req.params.id);
+    const cartItems = cartData.map((cartItem) => cartItem.get({ plain: true }))
+    console.log(books, cartItems)
+
+
+ 
+
+      res.render('cart',
+         { 
+        books,
+        cartItems,
+        logged_in: req.session.logged_in 
+      } 
+    )
+
+    
+      
+   
+
+  
   } catch (err) {
     res.status(500).json(err);
   }
