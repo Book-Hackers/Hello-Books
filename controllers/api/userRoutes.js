@@ -73,7 +73,7 @@ router.post('/cart/add', async (req, res) => {
     res.status(200).json({ message: "Book added to cart successfully!"})
   } catch (err) {
     console.error(err)
-    res.status(500).json({ message: "Unable to add book to cart. If you already have this book in your cart, you cannot add it twice."})
+    res.status(500).json({ message: "Unable to add book to cart. You must be logged in to add a book to your cart. If you already have this book in your cart, you cannot add it twice."})
 
   }
 });
