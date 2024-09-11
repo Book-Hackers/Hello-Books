@@ -44,12 +44,15 @@ async function addToCart(book_id) {
 }
 
 
-const btn = document.getElementById('add-to-cart')
-btn.addEventListener('click', (event) => {
-  event.preventDefault()
-  const bookId = btn.getAttribute('data-id')
-  addToCart(bookId);
-});
+// const addCartBtns = document.querySelectorAll('.add-to-cart-btn')
+// for (const btn of addCartBtns) {
+//   btn.addEventListener('click', (event) => {
+//     event.preventDefault()
+//     const bookId = btn.getAttribute('data-id')
+//     addToCart(bookId);
+//   });
+
+// }
 
 const addCartBtns = document.querySelectorAll('.add-to-cart')
 
