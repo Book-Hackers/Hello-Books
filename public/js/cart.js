@@ -18,13 +18,9 @@ async function addToCart(book_id) {
 }
 
 // Attach this function to your "Add to Cart" button
-const addCartBtns = document.querySelectorAll('.add-to-cart')
-
-for (const btn of addCartBtns) {
-  btn.addEventListener('click', (event) => {
-    event.preventDefault()
-    const bookId = btn.getAttribute('data-id')
-    addToCart(bookId);
-  });
-
-}
+const btn = document.getElementById('add-to-cart')
+btn.addEventListener('click', (event) => {
+  event.preventDefault()
+  const bookId = btn.getAttribute('data-id')
+  addToCart(bookId);
+});
