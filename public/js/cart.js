@@ -37,7 +37,7 @@ async function addToCart(book_id) {
 
       const data = await response.json();
       console.log(data)
-      alert(data.message);
+      // alert(data.message);
   } catch (error) {
       console.error('Error:', error);
   }
@@ -102,7 +102,7 @@ async function deleteCart(book_id) {
 
     const data = await response.json();
     console.log(data)
-    alert(data.message);
+    // alert(data.message);
 } catch (error) {
     console.error('Error:', error);
 }
@@ -113,7 +113,7 @@ for (const btn of removeBtns) {
   btn.addEventListener('click', async () => {
     const bookId = btn.getAttribute('data-id')
     deleteCart(bookId);
-    !goToProduct(bookId);
+    document.location.reload();
   })
 }
 
