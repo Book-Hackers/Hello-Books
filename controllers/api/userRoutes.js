@@ -8,6 +8,7 @@ router.post('/', async (req, res) => {
     console.log(req.body);
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.email = userData.email;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
@@ -46,6 +47,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
+      req.session.email = userData.email;
       req.session.logged_in = true;    
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -74,6 +76,29 @@ router.post('/cart/add', async (req, res) => {
     res.status(500).json({ message: "error in adding product"})
   }
 });
+
+router.delete('/cart/remove/:id', async (req, res) => {
+
+  try {
+    let cart = await Cart.findOne({ where: { user_id: req.session.user_id }});
+    console.log(cart)
+    if (!cart) {
+      return res.status(404).json({ message: "cart not found"});
+    }
+
+   let cartItem = await CartItem.findOne({ where: { cart_id: cart.id, book_id: req.params.id }})
+
+    await cartItem.destroy();
+   
+    res.status(200).json({ message: "Product deleted to cart successfully!"})
+
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: "error in deleting product"})
+  }
+});
+
+
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
