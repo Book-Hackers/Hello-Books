@@ -117,6 +117,18 @@ for (const btn of removeBtns) {
   })
 }
 
+// Empty Cart Message
+const message = document.querySelector('.empty-cart');
+const books = document.querySelectorAll('.book-in-cart');
+if (books.length === 0) {
+ message.textContent = 'Your cart is empty!';
+} else {
+ message.textContent = 'Your Cart';
+ message.setAttribute('style', 'padding: 0px;')
+}
+
+
+
 
 // checkout
 

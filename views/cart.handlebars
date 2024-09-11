@@ -1,10 +1,14 @@
 
+
 <div class="cart-page">
 
+
 <div class="cart-container">
+    <h2 class="empty-cart"></h2>
 {{#each books as |book| }}
 {{#each ../cartItems as |cartItem|}}
 {{#ifEquals book.id  cartItem.book_id}}
+
 
 
 <div data-id="{{book.id}}" class="book-in-cart">
@@ -20,15 +24,19 @@
 
 {{/ifEquals}}
 
+
 {{/each}}
 {{/each}}
     
+
 </div>
 <div class="cartBtnContainer">
 <button class="checkout">Checkout!</button>
 
 
 </div>
+
+
 </div>
 
 <script src="/js/cart.js"></script>
