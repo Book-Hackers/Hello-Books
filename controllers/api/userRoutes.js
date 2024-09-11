@@ -77,7 +77,7 @@ router.post('/cart/add', async (req, res) => {
   }
 });
 
-router.delete('/cart/remove', async (req, res) => {
+router.delete('/cart/remove/:id', async (req, res) => {
 
   try {
     let cart = await Cart.findOne({ where: { user_id: req.session.user_id }});

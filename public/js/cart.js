@@ -89,7 +89,7 @@ for (const book of cartBooks) {
 
 async function deleteCart(book_id) {
   try {
-    const response = await fetch('/api/users/cart/remove', {
+    const response = await fetch(`/api/users/cart/remove/${book_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
