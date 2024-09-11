@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 
 
 router.get('/sellerpage', withAuth, async (req, res) => {
-<<<<<<< message
+
   console.log("Session username:", req.session.username);
   console.log("Session user_id:", req.session.user_id);
   try {
@@ -69,39 +69,8 @@ router.get('/sellerpage', withAuth, async (req, res) => {
       console.log(err);
       res.status(500).json(err);
   }
-=======
-    console.log("Session username:", req.session.username);
-    console.log("Session user_id:", req.session.user_id);
-    try {
-        const booksData = await Book.findAll({
-            where: {
-                user_id: req.session.user_id,
-            },
-            include: [{
-                model: Transaction,
-                where: { seller_id: req.session.user_id },
-                attributes: ['status'], 
-                required: false, 
-            }],
-        });
 
-        const books = booksData.map((book) => book.get({ plain: true }));
-        const activeBooks = books.filter(book => book.status  === 'active');
-        const pendingBooks = books.filter(book => book.status  === 'pending');
-        const soldBooks = books.filter(book => book.status === 'sold');
 
-        res.render('sellerpage', {
-            username: req.session.username,
-            activeBooks, 
-            pendingBooks, 
-            soldBooks, 
-            logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
->>>>>>> dev
 });
 
 router.get('/postBook', (req, res) => {
