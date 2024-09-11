@@ -1,9 +1,14 @@
-{{#each cartItems as |cartItem| }}
+{{!-- {{#each cartItems as |cartItem| }} --}}
+{{#each books as |book| }}
+{{#each ../cartItems as |cartItem|}}
+{{#ifEquals book.id  cartItem.book_id}}
 
 <div class="book-in-cart">
-    <h2 class="cartTitle">{{cartItem.book.title}}</h2>
-    <h3 class="cartAuthor">Hello</h3>
+    <h2 class="cartTitle">{{book.title}}</h2>
+    <h3 class="cartAuthor">{{book.author}}</h3>
 </div>
 
+{{/ifEquals}}
 
+{{/each}}
 {{/each}}

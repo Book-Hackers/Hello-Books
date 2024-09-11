@@ -103,27 +103,40 @@ router.get('/myOrders', withAuth, async (req, res) => {
 router.get('/cart', withAuth, async (req, res) => {
  
   try {
-    const cartData = await CartItem.findAll( req.params.cartItem_id,
-      {
-        include: [
-          {
-            model: Book,
-            attributes: ['title']
-          }]});
-    console.log("CART DATA:", cartData)
+    const bookData = await Book.findAll({
+      include: [
+        {
+          model: User,
+          attributes:['first_name', 'last_name']
+        },
+      ],
+    });
+    const books = bookData.map((book) => book.get({ plain: true }));
 
-    const cartItems = cartData.map((cartItem) => cartItem.get({ plain: true }));
-    console.log(cartItems)
-    res.render('cart',
-       { 
-      cartItems,
-      logged_in: req.session.logged_in 
-    }
-  );
+    const cartData = await CartItem.findAll(req.params.id);
+    const cartItems = cartData.map((cartItem) => cartItem.get({ plain: true }))
+    console.log(books, cartItems)
+
+
+ 
+
+      res.render('cart',
+         { 
+        books,
+        cartItems,
+        logged_in: req.session.logged_in 
+      } 
+    )
+
+    
+      
+   
+
+  
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
