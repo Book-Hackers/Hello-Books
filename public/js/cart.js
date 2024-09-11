@@ -74,12 +74,16 @@ for (const btn of addCartBtns) {
 
 // go to product
 
-const cartBooks = document.querySelectorAll('.book-in-cart');
+const cartBooks = document.querySelectorAll('.viewBookCart');
+
+function goToProduct (book_id) {
+  document.location.replace(`/book/${book_id}`)
+}
 
 for (const book of cartBooks) {
   book.addEventListener('click', () => {
     const bookId = book.getAttribute('data-id');
-    document.location.replace(`/book/${bookId}`)
+    goToProduct(bookId)
   } )
 };
 
@@ -109,6 +113,7 @@ for (const btn of removeBtns) {
   btn.addEventListener('click', async () => {
     const bookId = btn.getAttribute('data-id')
     deleteCart(bookId);
+    !goToProduct(bookId);
   })
 }
 
