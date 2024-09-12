@@ -349,6 +349,7 @@ body {
     margin-top: 5px;
   }
 
+
   .container {
     width: 80%;
     max-width: 800px; /* Limits the max width of the container */
@@ -413,3 +414,59 @@ body {
   button:hover {
     background-color: #575c3e; 
   }
+
+
+.cart-container {
+border: solid 5px black;
+border-radius: 10px;
+margin-top: 100px;
+margin-bottom: 50px;
+}
+
+.book-in-cart {
+background-color: #a47e4f;
+margin: 10px;
+padding: 20px;
+border-radius: 5px;
+}
+
+.book-in-cart:hover {
+cursor: pointer;
+background-color: #D7BE69;
+}
+
+.cartBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout {
+    background-color: #424a26;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    border: none;
+}
+
+.checkout:hover {
+    cursor: pointer;
+    background-color: #D7BE69;
+    color: black;
+}
+
+.remove-from-cart {
+    background-color: #424a26;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.remove-from-cart:hover {
+    cursor: pointer;
+    background-color: #A47E4F;
+}
+
+
+
