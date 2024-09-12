@@ -1,7 +1,6 @@
 {
   "name": "crowd-funding",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -24,7 +23,6 @@
   },
   "devDependencies": {
     "chai": "^5.1.1",
-    "chai-http": "^5.0.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "mocha": "^10.7.3",
