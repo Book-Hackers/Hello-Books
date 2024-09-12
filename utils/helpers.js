@@ -20,4 +20,6 @@ module.exports = {
     }
   },
   ifEquals: (a, b, options) => a === b ? options.fn(this) : options.inverse(this),
+
+  ifNotEquals: (a, b, options) => a !== b ? options.fn(this) : options.inverse(this),
 };

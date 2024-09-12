@@ -1,6 +1,6 @@
 <div class="container" class="row">
   <div class="welcome-section" class="col-auto">
-    <h2>Welcome, {{first_name}}!</h2>
+    <h2>Welcome, {{username}}!</h2>
   </div>
 
 <div class="form-section" class="row mt-4">
@@ -16,17 +16,39 @@
                 <label for="author">Author:</label>
                 <input type="text" id="author" name="author" required>
             </div>
-            <div class="form-group">
-                <label for="genre">Genre:</label>
-                <input type="text" id="genre" name="genre" required>
+             <div class="form-group"></div>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
             </div>
+            <div class="form-group">
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre" required>
+            <option value="">Select a genre</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Biography">Biography</option>
+            <option value="Self-Help">Self-Help</option>
+            <option value="Children's">Children's</option>
+             <option value="Other">Other</option>
+            </select>
+        </div>
             <div class="form-group">
                 <label for="isbn">ISBN:</label>
                 <input type="text" id="isbn" name="isbn" required>
             </div>
             <div class="form-group">
                 <label for="condition">Condition:</label>
-                <input type="text" id="condition" name="condition" required>
+           <select id="condition" name="condition" required>
+            <option value="">Select a condition</option>
+            <option value="New">New</option>
+            <option value="Like New">Like New</option>
+            <option value="Very Good">Very Good</option>
+            <option value="Good">Good</option>
+            <option value="Acceptable">Acceptable</option>
+          </select>
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>

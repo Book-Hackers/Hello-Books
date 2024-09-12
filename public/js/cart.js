@@ -24,6 +24,18 @@
 
 //   }
 // }
+
+const cartMessage = document.querySelector('.empty-cart');
+const books = document.querySelectorAll('.book-in-cart');
+
+const addCartBtns = document.querySelectorAll('.add-to-cart')
+const cartLink = document.querySelector('.cart-link');
+console.log(books)
+
+
+
+
+
 async function addToCart(book_id) {
   console.log(book_id)
   try {
@@ -37,27 +49,35 @@ async function addToCart(book_id) {
 
       const data = await response.json();
       console.log(data)
-      alert(data.message);
+      // alert(data.message);
+    
+        alert(data.message)
+    
   } catch (error) {
       console.error('Error:', error);
   }
 }
 
 
-const btn = document.getElementById('add-to-cart')
-btn.addEventListener('click', (event) => {
-  event.preventDefault()
-  const bookId = btn.getAttribute('data-id')
-  addToCart(bookId);
-});
+// const addCartBtns = document.querySelectorAll('.add-to-cart-btn')
+// for (const btn of addCartBtns) {
+//   btn.addEventListener('click', (event) => {
+//     event.preventDefault()
+//     const bookId = btn.getAttribute('data-id')
+//     addToCart(bookId);
+//   });
 
-const addCartBtns = document.querySelectorAll('.add-to-cart')
+// }
+
+
 
 for (const btn of addCartBtns) {
   btn.addEventListener('click', (event) => {
     event.preventDefault()
     const bookId = btn.getAttribute('data-id')
+    const bookTitle = btn.getAttribute('title')
     addToCart(bookId);
+    
   });
 
 // for (const btn of addToCart) {
@@ -71,12 +91,16 @@ for (const btn of addCartBtns) {
 
 // go to product
 
-const cartBooks = document.querySelectorAll('.book-in-cart');
+const cartBooks = document.querySelectorAll('.viewBookCart');
+
+function goToProduct (book_id) {
+  document.location.replace(`/book/${book_id}`)
+}
 
 for (const book of cartBooks) {
   book.addEventListener('click', () => {
     const bookId = book.getAttribute('data-id');
-    document.location.replace(`/book/${bookId}`)
+    goToProduct(bookId)
   } )
 };
 
@@ -86,7 +110,7 @@ for (const book of cartBooks) {
 
 async function deleteCart(book_id) {
   try {
-    const response = await fetch('/api/users/cart/remove', {
+    const response = await fetch(`/api/users/cart/remove/${book_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +119,7 @@ async function deleteCart(book_id) {
 
     const data = await response.json();
     console.log(data)
-    alert(data.message);
+    // alert(data.message);
 } catch (error) {
     console.error('Error:', error);
 }
@@ -106,8 +130,20 @@ for (const btn of removeBtns) {
   btn.addEventListener('click', async () => {
     const bookId = btn.getAttribute('data-id')
     deleteCart(bookId);
+    document.location.reload();
   })
 }
+
+// Empty Cart Message
+
+if (books.length === 0) {
+ cartMessage.textContent = 'Your cart is empty!';
+} else {
+ cartMessage.textContent = 'Your Cart';
+ cartMessage.setAttribute('style', 'padding: 0px;')
+}
+
+
 
 
 // checkout

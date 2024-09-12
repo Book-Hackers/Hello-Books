@@ -430,10 +430,10 @@ padding: 20px;
 border-radius: 5px;
 }
 
-.book-in-cart:hover {
+/* .book-in-cart:hover {
 cursor: pointer;
 background-color: #D7BE69;
-}
+} */
 
 .cartBtnContainer {
   display: flex;
@@ -446,6 +446,20 @@ background-color: #D7BE69;
     padding: 10px 20px 10px 20px;
     border-radius: 5px;
     margin-bottom: 100px;
+    border: none;
+}
+
+.bookCartBtns {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewBookCart {
+  background-color: #424a26;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
     border: none;
 }
 
@@ -463,10 +477,15 @@ background-color: #D7BE69;
     border: none;
 }
 
-.remove-from-cart:hover {
+.empty-cart {
+  text-align: center;
+  padding: 20px;
+}
+
+/* .remove-from-cart:hover {
     cursor: pointer;
     background-color: #A47E4F;
-}
+} */
 
 
 

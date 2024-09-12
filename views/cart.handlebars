@@ -1,27 +1,44 @@
 
+
 <div class="cart-page">
 
+
 <div class="cart-container">
+    <h2 class="empty-cart"></h2>
 {{#each books as |book| }}
 {{#each ../cartItems as |cartItem|}}
 {{#ifEquals book.id  cartItem.book_id}}
 
 
+
 <div data-id="{{book.id}}" class="book-in-cart">
     <h2 class="cartTitle">{{book.title}}</h2>
     <h3 class="cartAuthor">{{book.author}}</h3>
+    <div class="bookCartBtns">
+
     <button data-id="{{book.id}}" class="remove-from-cart">Remove From Cart</button>
+    <button data-id="{{book.id}}" class="viewBookCart">View Book</button>
+    </div>
 </div>
 
 
 {{/ifEquals}}
 
+
 {{/each}}
 {{/each}}
     
-</div>
-<div class="cartBtnContainer">
-<button class="checkout">Checkout!</button>
 
 </div>
+<div class="cartBtnContainer">
+<button data-id="{{book.id}}" class="checkout-btn" data-seller-id = "{{book.user_id}}" id="check-out">Checkout!</button>
+
+
+
 </div>
+
+
+</div>
+
+<script src="/js/cart.js"></script>
+<script src="/js/checkout.js"></script>

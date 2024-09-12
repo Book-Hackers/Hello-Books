@@ -70,10 +70,11 @@ router.post('/cart/add', async (req, res) => {
 
     await CartItem.create({ cart_id: cart.id, book_id: req.body.book_id })
 
-    res.status(200).json({ message: "Product added to cart successfully!"})
+    res.status(200).json({ message: "Book added to cart successfully!"})
   } catch (err) {
     console.error(err)
-    res.status(500).json({ message: "error in adding product"})
+    res.status(500).json({ message: "Unable to add book to cart. You must be logged in to add a book to your cart. If you already have this book in your cart, you cannot add it twice."})
+
   }
 });
 
@@ -90,7 +91,7 @@ router.delete('/cart/remove/:id', async (req, res) => {
 
     await cartItem.destroy();
    
-    res.status(200).json({ message: "Product deleted to cart successfully!"})
+    res.status(200).json({ message: "Book deleted to cart successfully!"})
 
   } catch (err) {
     console.error(err)

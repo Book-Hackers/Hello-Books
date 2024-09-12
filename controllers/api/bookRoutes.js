@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
             genre: req.body.genre,
             isbn: req.body.isbn,
             condition: req.body.condition,
+            description: req.body.description,
             price: req.body.price,
             user_id: req.session.user_id, 
         });
