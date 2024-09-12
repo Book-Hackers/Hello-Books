@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Transaction, Book, User, Cart} = require('../../models');
+const { Transaction, Book, User, Cart, CartItem} = require('../../models');
 const withAuth = require('../../utils/auth');
 router.post('/checkout', withAuth, async (req, res) => {
     try {
@@ -24,5 +24,7 @@ router.post('/checkout', withAuth, async (req, res) => {
         res.status(500).json({ error: 'Failed to complete checkout.' });
     }
 });
+
+
 
   module.exports = router;
