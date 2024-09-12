@@ -4,29 +4,49 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const genreFilter = req.query.genre; // Get genre from query params
+
+    console.log("Genre Filter:", genreFilter);
+
+   
+    const whereClause = {
+      status: 'active',
+    };
+
+
+    if (genreFilter && genreFilter.trim() !== '') {
+      whereClause.genre = genreFilter.trim(); 
+      console.log("Updated whereClause with genre:", whereClause);
+    }
+    
     const bookData = await Book.findAll({
-      where: {
-        status: 'active'
-      },
+      where: whereClause, 
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name'],
+          attributes: ['first_name', 'last_name'], 
         },
       ],
     });
 
+  
+    console.log("Number of books found:", bookData.length);
+
+  
     const books = bookData.map((book) => book.get({ plain: true }));
-    res.render('homepage',
-       { 
-        books,
-      logged_in: req.session.logged_in 
-    }
-  );
+    console.log("Books to render:", books);
+
+    res.render('homepage', { 
+      books,
+      // logged_in: req.session.logged_in,
+    });
   } catch (err) {
+    console.error("Error fetching books:", err);
     res.status(500).json(err);
   }
 });
+
+
 
 router.get('/book/:id', async (req, res) => {
   try {
@@ -155,5 +175,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup');
 })
+
+
 
 module.exports = router;
