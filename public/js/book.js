@@ -7,11 +7,12 @@ const newBookFormHandler = async (event) => {
     const isbn = document.querySelector('#isbn').value.trim();
     const condition = document.querySelector('#condition').value.trim();
     const price = document.querySelector('#price').value.trim();
+    const description = document.querySelector('#description').value.trim();
   
-    if (title && author && genre && isbn && condition && price) {
+    if (title && author && genre && isbn && condition && price && description) {
       const response = await fetch(`/api/books`, {
         method: 'POST',
-        body: JSON.stringify({title: title, author: author, genre: genre, isbn: isbn, condition: condition, price: price }),
+        body: JSON.stringify({title: title, author: author, genre: genre, isbn: isbn, condition: condition, price: price, description: description }),
         headers: {
           'Content-Type': 'application/json',
         },

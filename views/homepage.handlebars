@@ -1,5 +1,6 @@
 <!-- Loop over each object in the projects array -->
 {{#each books as |book| }}
+{{!-- {{#ifEquals (book.status "active")}} --}}
 <div class="book-container">
     <div class="buy-book">
         <div class="book-photo">
@@ -25,6 +26,8 @@
         <p class="desContainer">{{book.description}}</p>
     </div>
 </div>
+  {{!-- {{/ifEquals}} --}}
 {{/each}}
 
 <script src="/js/cart.js"></script>
+<script src="/js/status.js"></script>

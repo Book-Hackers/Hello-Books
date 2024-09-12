@@ -5,6 +5,9 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const bookData = await Book.findAll({
+      where: {
+        status: 'active'
+      },
       include: [
         {
           model: User,

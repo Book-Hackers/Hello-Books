@@ -43,7 +43,7 @@ Book.init(
     status: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: "Active"
+      defaultValue: "active"
     },
     user_id: {
       type: DataTypes.INTEGER,
