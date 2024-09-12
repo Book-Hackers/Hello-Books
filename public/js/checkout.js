@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.error('Error:', error);
     }
+
+    document.location.reload();
     });
   });
 });
