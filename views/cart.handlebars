@@ -31,7 +31,8 @@
 
 </div>
 <div class="cartBtnContainer">
-<button class="checkout">Checkout!</button>
+<button data-id="{{book.id}}" class="checkout-btn" data-seller-id = "{{book.user_id}}" id="check-out">Checkout!</button>
+
 
 
 </div>
@@ -40,3 +41,4 @@
 </div>
 
 <script src="/js/cart.js"></script>
+<script src="/js/checkout.js"></script>
