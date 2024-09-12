@@ -21,5 +21,5 @@ const seedDatabase = async () => {
 
   process.exit(0);
 };
-
+// just want to send a functional version of dev
 seedDatabase();
