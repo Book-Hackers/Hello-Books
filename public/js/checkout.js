@@ -28,6 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Fetch Error:', error); 
         alert('Error checking out.');
       }
+
+      try {
+        const response = await fetch(`/api/users/cart/remove`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+    
+        const data = await response.json();
+        console.log(data)
+        // alert(data.message);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+    document.location.reload();
     });
   });
 });
