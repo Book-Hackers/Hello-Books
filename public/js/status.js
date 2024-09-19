@@ -16,14 +16,16 @@ document.querySelectorAll('.status-select').forEach(select => {
         if (response.ok) {
           console.log(newStatus);
           moveBookToNewSection(bookContainer, newStatus);
-          alert('Status updated successfully.');
+          // alert('Status updated successfully.');
+          console.log("Status updated successfully.")
         } else {
-          alert('Failed to update status.');
+          // alert('Failed to update status.');
+          console.log("Failed to update status.")
         }
       })
       .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred while updating the status.');
+        // alert('An error occurred while updating the status.');
       });
     });
   });

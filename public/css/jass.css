@@ -352,24 +352,24 @@ body {
 
   .container {
     width: 80%;
-    max-width: 800px; /* Limits the max width of the container */
-    background-color: #fff; /* White background for the container */
+    max-width: 800px; 
+    background-color: #fff; 
     padding: 20px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 8px; /* Rounded corners for the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
   .welcome-section {
     text-align: center;
-    margin-bottom: 20px; /* Space below the welcome section */
+    margin-bottom: 20px; 
   }
   
   .form-section h3 {
     text-align: center;
-    margin-bottom: 20px; /* Space below the heading */
+    margin-bottom: 20px; 
   }
   
   form {
@@ -379,7 +379,7 @@ body {
   
   .form-group {
     display: flex;
-    align-items: center; /* Align items vertically center */
+    align-items: center; 
     margin-bottom: 15px; 
   }
   
@@ -430,10 +430,6 @@ padding: 20px;
 border-radius: 5px;
 }
 
-/* .book-in-cart:hover {
-cursor: pointer;
-background-color: #D7BE69;
-} */
 
 .cartBtnContainer {
   display: flex;
@@ -482,10 +478,64 @@ background-color: #D7BE69;
   padding: 20px;
 }
 
-/* .remove-from-cart:hover {
-    cursor: pointer;
-    background-color: #A47E4F;
-} */
 
 
+.mobile-menu-button {
+  display: none; 
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
+@media (max-width: 900px) {
+
+  .navMenu {
+    display: none; 
+    flex-direction: column; 
+    position: absolute; 
+    /* background-color: white;  */
+    width: 160px;
+    color: white;
+    text-align: center;
+    top: 20px; 
+    left: 40%;
+    z-index: 1;
+    border-radius: 8px;
+  }
+  header nav a {
+    color: #fff;
+   
+}
+  nav.active {
+    display: flex; 
+  }
+
+  .headerList{
+    display: none;
+  }
+
+  h1 a {
+    display: none;
+  }
+   .mobile-menu-button {
+      display: block; 
+    }
+
+  .book-container{
+    width: 400px;
+  }
+
+  .book-containerMobile{
+    width: 330px;
+  }
+
+  /* .book-page-containerMobile{
+    width: 330px;
+  } */
+
+  .book-cover{
+    width: 200px;
+  }
+
+}

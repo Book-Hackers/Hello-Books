@@ -9,7 +9,7 @@
         <div class="pendingText">Pending Orders</div>
         <div class="pendingOrdersContainer">
             {{#each pendingBooks as |book| }}
-              <div class="book-container" style="margin-top: 10px; margin-bottom: 10px;">
+              <div class="book-container book-containerMobile" style="margin-top: 10px; margin-bottom: 10px;">
     <div class="buy-book">
         <div class="book-photo">
             <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">
@@ -37,7 +37,7 @@
         <div class="pendingText">Sold Orders</div>
         <div class="pendingOrdersContainer">
             {{#each soldBooks as |book| }}
-              <div class="book-container" style="margin-top: 10px; margin-bottom: 10px;">
+              <div class="book-container book-containerMobile" style="margin-top: 10px; margin-bottom: 10px;">
     <div class="buy-book">
         <div class="book-photo">
             <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg">

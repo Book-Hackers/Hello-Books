@@ -48,11 +48,12 @@ async function addToCart(book_id) {
       });
 
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       // alert(data.message);
     
-        alert(data.message)
-    
+        // alert(data.message)
+        document.location.replace('/cart');
+
   } catch (error) {
       console.error('Error:', error);
   }
