@@ -539,3 +539,51 @@ border-radius: 5px;
   }
 
 }
+footer {
+  background-color: #424a26;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+h2, h3 {
+  text-align: center;
+}
+.team-container {
+  display: flex;
+  justify-content: space-around; 
+  gap: 20px; 
+  margin-top: 20px;
+}
+.developer-card {
+  background-color: #424a26;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 30%; 
+  text-align: center;
+}
+.developer-card h4 {
+  margin-bottom: 10px;
+  color: #f9f9f9;
+}
+.developer-card img {
+  max-width: 150px; /* Or any size you prefer */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centers the image */
+}
+.developer-card p {
+  margin-bottom: 15px;
+  color: #f9f9f9;
+}
+.developer-card a {
+  text-decoration: none;
+  color: #f9f9f9;
+  font-weight: bold;
+}
+.developer-card a:hover {
+  text-decoration: underline;
+}
