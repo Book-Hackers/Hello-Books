@@ -13,11 +13,18 @@
   <h1>
         <a href="/">Hello Book</a>
       </h1>
-    <header class="header">
-      <img class="logo" src="/images/logo-no-background.svg" alt="this">
 
+
+
+    <header class="header">
+      <a href="/"><img class="logo" src="/images/logo-no-background.svg" alt="this"></a>
       
-      <nav>
+
+
+        <button class="mobile-menu-button" id="mobileMenuButton">
+    &#9776;
+  </button>
+      <nav id="navMenu" class="navMenu">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/cart" class="cart-link">Cart</a>
@@ -43,8 +50,16 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{!-- <script src="/js/cart.js"></script> --}}
+  <script src="/js/cart.js"></script>
   {{/if}}
 </body>
+<script>
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const navMenu = document.getElementById('navMenu');
 
+  mobileMenuButton.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    console.log("here")
+  });
+</script>
 </html>

@@ -19,14 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         if (response.ok) {
-          alert('Checkout successfully.');
+          // alert('Checkout successfully.');
+          console.log("Checkout Successful")
         } else {
           console.error('Response Error:', data); 
-          alert('Error checking out.');
+          // alert('Error checking out.');
         }
       } catch (error) {
         console.error('Fetch Error:', error); 
-        alert('Error checking out.');
+        // alert('Error checking out.');
       }
 
       try {
