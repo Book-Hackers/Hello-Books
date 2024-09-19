@@ -20,7 +20,8 @@ const newBookFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/api/books/sellerpage');
       } else {
-        alert('Failed to post book');
+        // alert('Failed to post book');
+        console.log("Failed to post book")
       }
     }
   };
